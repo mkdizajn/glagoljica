@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>"Glagoljica" Old Croatian type by kpendic</title>
+
+
+<style>
+
+/* normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:0.67em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}dfn{font-style:italic;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em;}pre{white-space:pre-wrap;}q{quotes:"\201C" "\201D" "\2018" "\2019";}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}figure{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}legend{border:0;padding:0;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
+@import url(//fonts.googleapis.com/css?family=Lato:300,400,900);
+	@font-face {
+    font-family: 'glagoljica_starohrvatskopismo';
+    src: url('fnt/glagoljica-webfont.woff2') format('woff2'),
+         url('fnt/glagoljica-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{ font-family: "glagoljica_starohrvatskopismo";}
+.codrops-header{ font-family: Lato, Arial, sans; font-size: small; line-height: 1.5;}
+
+/* mark it */
+/* grid */
+.grid {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+	width: 100%;
+}
+
+.grid li {
+	position: relative;
+	float: left;
+	font-size: 12em;
+	line-height: 1.5;
+	max-height: 290px;
+	text-align: center;
+	width: 16.6666667%;
+	/* Fallback */
+	width: -webkit-calc(100% / 6);
+	width: calc(100% / 6);
+}
+
+/* Common styles for the letters */
+.grid li span {
+	display: inline-block;
+	font-weight: 900;
+	line-height: 1;
+	position: relative;
+	color: hsla(0, 0%, 0%, 0.6);
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-perspective: 550px;
+	-ms-perspective: 550px;
+	perspective: 550px;
+	z-index: 1;
+}
+
+.grid li > span:before,
+.grid li > span:after {
+	position: absolute;
+	content: attr(data-letter);
+	line-height: inherit;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+.grid li > span:before {
+	text-shadow: none;
+	color: hsla(0, 0%, 0%, 0.12);
+}
+
+/* Colors */
+
+.ot-letter-left { background: #e74d3c; }
+.ot-letter-left > span { text-shadow: 1px 4px 6px #e74d3c, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px #e74d3c; }
+.ot-letter-left > span:after { color: #e74d3c; }
+.ot-letter-left:hover > span:after { color: #ea6253; }
+
+.ot-letter-right { background: #ea6657; }
+.ot-letter-right > span { text-shadow: 1px 4px 6px #ea6657, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px #ea6657; }
+.ot-letter-right > span:after { color: #ea6657; }
+.ot-letter-right:hover > span:after { color: #ed7a6e; }
+
+.ot-letter-top { background: #ee7f72; }
+.ot-letter-top > span { text-shadow: 1px 4px 6px #ee7f72, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px #ee7f72; }
+.ot-letter-top > span:after { color: #ee7f72; }
+.ot-letter-top:hover > span:after { color: #f09389; }
+
+.ot-letter-bottom { background: #e95949; }
+.ot-letter-bottom > span { text-shadow: 1px 4px 6px #e95949, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px #e95949; }
+.ot-letter-bottom > span:after { color: #e95949; }
+.ot-letter-bottom:hover > span:after { color: #eb6e60; }
+
+/* Left */
+.ot-letter-left > span:before,
+.ot-letter-left > span:after {
+	-webkit-transform-origin: 0 50%;
+	-ms-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+}
+
+.ot-letter-left > span:before {
+	-webkit-transform: scale(1.08,1) skew(0deg,1deg);
+	-ms-transform: scale(1.08,1) skew(0deg,1deg);
+	transform: scale(1.08,1) skew(0deg,1deg);
+}
+
+.ot-letter-left > span:after {
+	text-shadow: -1px 0px 0px hsla(360, 100%, 100%, 0.1), 3px 0px 1px hsla(0, 0%, 0%, 0.4);
+	-webkit-transform: rotateY(-15deg);
+	-ms-transform: rotateY(-15deg);
+	transform: rotateY(-15deg);
+}
+
+.ot-letter-left:hover > span:before {
+	-webkit-transform: scale(0.85,1) skew(0deg,20deg);
+	-ms-transform: scale(0.85,1) skew(0deg,20deg);
+	transform: scale(0.85,1) skew(0deg,20deg);
+}
+
+.ot-letter-left:hover > span:after {
+	-webkit-transform: rotateY(-40deg);
+	-ms-transform: rotateY(-40deg);
+	transform: rotateY(-40deg);
+}
+
+/* Right */
+.ot-letter-right > span:before,
+.ot-letter-right > span:after {
+	-webkit-transform-origin: 100% 50%;
+	-ms-transform-origin: 100% 50%;
+	transform-origin: 100% 50%;
+}
+
+.ot-letter-right > span:before {
+	-webkit-transform: scale(0.85,1) skew(0deg,1deg);
+	-ms-transform: scale(0.85,1) skew(0deg,1deg);
+	transform: scale(0.85,1) skew(0deg,1deg);
+}
+
+.ot-letter-right > span:after {
+	text-shadow: 1px 0px 0px hsla(360, 100%, 100%, 0.1), -3px 0px 1px hsla(0, 0%, 0%, 0.4);
+	-webkit-transform: rotateY(15deg);
+	-ms-transform: rotateY(15deg);
+	transform: rotateY(15deg);
+}
+
+.ot-letter-right:hover > span:before {
+	-webkit-transform: scale(0.85,1) skew(0deg,-20deg);
+	-ms-transform: scale(0.85,1) skew(0deg,-20deg);
+	transform: scale(0.85,1) skew(0deg,-20deg);
+}
+
+.ot-letter-right:hover > span:after {
+	-webkit-transform: rotateY(40deg);
+	-ms-transform: rotateY(40deg);
+	transform: rotateY(40deg);
+}
+
+/* Up */
+.ot-letter-top > span:before,
+.ot-letter-top > span:after {
+	-webkit-transform-origin: 50% 100%;
+	-ms-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+}
+
+.ot-letter-top > span:before {
+	-webkit-transform: scale(1,0.95) skew(-4deg,0deg);
+	-ms-transform: scale(1,0.95) skew(-4deg,0deg);
+	transform: scale(1,0.95) skew(-4deg,0deg);
+}
+
+.ot-letter-top > span:after {
+	text-shadow: 0px 1px 0px hsla(360, 100%, 100%, 0.1), 0px -3px 1px hsla(0, 0%, 0%, 0.4);
+	-webkit-transform: rotateX(-15deg);
+	-ms-transform: rotateX(-15deg);
+	transform: rotateX(-15deg);
+}
+
+.ot-letter-top:hover > span:before {
+	-webkit-transform: translateY(-0.050em) scale(1,0.55) skew(-10deg,0deg);
+	-ms-transform: translateY(-0.050em) scale(1,0.55) skew(-10deg,0deg);
+	transform: translateY(-0.050em) scale(1,0.55) skew(-10deg,0deg);
+}
+
+.ot-letter-top:hover > span:after {
+	-webkit-transform: translateY(-0.035em) rotateX(-40deg);
+	-ms-transform: translateY(-0.035em) rotateX(-40deg);
+	transform: translateY(-0.035em) rotateX(-40deg);
+}
+
+/* Down */
+.ot-letter-bottom > span:before,
+.ot-letter-bottom > span:after {
+	-webkit-transform-origin: 50% 0;
+	-ms-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+}
+
+.ot-letter-bottom > span:before {
+	-webkit-transform: scale(1,1.05) skew(4deg,0deg);
+	-ms-transform: scale(1,1.05) skew(4deg,0deg);
+	transform: scale(1,1.05) skew(4deg,0deg);
+}
+
+.ot-letter-bottom > span:after {
+	text-shadow: 0px -1px 0px hsla(360, 100%, 100%, 0.1), 0px 3px 1px hsla(0, 0%, 0%, 0.4);
+	-webkit-transform: rotateX(15deg);
+	-ms-transform: rotateX(15deg);
+	transform: rotateX(15deg);
+}
+
+.ot-letter-bottom:hover > span:before {
+	-webkit-transform: translateY(-0.035em) scale(1,1.2) skew(10deg,0deg);
+	-ms-transform: translateY(-0.035em) scale(1,1.2) skew(10deg,0deg);
+	transform: translateY(-0.035em) scale(1,1.2) skew(10deg,0deg);
+}
+
+.ot-letter-bottom:hover > span:after {
+	-webkit-transform: translateY(0.045em) rotateX(40deg);
+	-ms-transform: translateY(0.045em) rotateX(40deg);
+	transform: translateY(0.045em) rotateX(40deg);
+}
+
+/* Example for media query: change number of items per row */
+@media screen and (max-width: 1190px) {
+	.grid li {
+		width: 20%;
+		/* Fallback */
+		width: -webkit-calc(100% / 5);
+		width: calc(100% / 5);
+	}
+}
+
+@media screen and (max-width: 945px) {
+	.grid li {
+		width: 25%;
+		/* Fallback */
+		width: -webkit-calc(100% / 4);
+		width: calc(100% / 4);
+	}
+}
+
+@media screen and (max-width: 760px) {
+	.grid li {
+		width: 33.3333333%;
+		/* Fallback */
+		width: -webkit-calc(100% / 3);
+		width: calc(100% / 3);
+	}
+}
+
+@media screen and (max-width: 560px) {
+	.grid li {
+		width: 50%;
+		/* Fallback */
+		width: -webkit-calc(100% / 2);
+		width: calc(100% / 2);
+	}
+}
+
+@media screen and (max-width: 340px) {
+	.grid li {
+		width: 100%;
+	}
+}
+
+/* show normal alphabet letter below */
+li span span:after{
+    position: absolute;
+    top: 110%; left: 0%;
+    content: attr(data-letter);
+    font-family: Arial;
+    font-size: 1.5rem;
+    text-shadow: none;
+    color: #fff3;
+}
+
+</style>
+
+
+</head>
+
+<body translate="no" >
+
+  <div class="container">
+			<div class="component">
+				<ul class="grid">
+					<li><div class="codrops-header"><h2>"Glagoljica" Old Croatian type</h2><br><br><p>by <a href="https://github.com/mkdizajn" target="_blank">Kreso</a></p></div></li>
+					<li class="ot-letter-bottom"><span data-letter="A"><span data-letter="A">A</span></span></li>
+					<li class="ot-letter-left">  <span data-letter="B"><span data-letter="B">B</span></span></li>
+					<li class="ot-letter-top">   <span data-letter="C"><span data-letter="C">C</span></span></li>
+					<li class="ot-letter-right"> <span data-letter="D"><span data-letter="D">D</span></span></li>
+					<li class="ot-letter-bottom"> <span data-letter="E"><span data-letter="E">E</span></span></li>
+					<li class="ot-letter-left"> <span data-letter="F"><span data-letter="F">F</span></span></li>
+					<li class="ot-letter-top"> <span data-letter="G"><span data-letter="G">G</span></span></li>
+					<li class="ot-letter-right"> <span data-letter="H"><span data-letter="H">H</span></span></li>
+					<li class="ot-letter-bottom"> <span data-letter="I"><span data-letter="I">I</span></span></li>
+					<li class="ot-letter-left"> <span data-letter="J"><span data-letter="J">J</span></span></li>
+					<li class="ot-letter-top"> <span data-letter="K"><span data-letter="K">K</span></span></li>
+					<li class="ot-letter-right"> <span data-letter="L"><span data-letter="L">L</span></span></li>
+					<li class="ot-letter-bottom"> <span data-letter="M"><span data-letter="M">M</span></span></li>
+					<li class="ot-letter-left"> <span data-letter="N"><span data-letter="N">N</span></span></li>
+					<li class="ot-letter-top"> <span data-letter="O"><span data-letter="O">O</span></span></li>
+					<li class="ot-letter-right"> <span data-letter="P"><span data-letter="P">P</span></span></li>
+					<li class="ot-letter-bottom"> <span data-letter="R"><span data-letter="R">R</span></span></li>
+					<li class="ot-letter-left"> <span data-letter="S"><span data-letter="S">S</span></span></li>
+					<li class="ot-letter-top"> <span data-letter="T"><span data-letter="T">T</span></span></li>
+					<li class="ot-letter-right"> <span data-letter="U"><span data-letter="U">U</span></span></li>
+					<li class="ot-letter-bottom"> <span data-letter="V"><span data-letter="V">V</span></span></li>
+					<li class="ot-letter-left"> <span data-letter="Z"><span data-letter="Z">Z</span></span></li>
+				</ul>
+			</div>
+
+		</div><!-- /container -->
+   
+  
+
+</body>
+
+</html>
+ 
